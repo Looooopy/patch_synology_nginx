@@ -36,7 +36,7 @@ Have not tired newer version, so keep me posted if someone else tries.
 ### How to run
     cd ./build_nginx
     docker build -t salmirnd/build_nginx:v1.0 .
-    docker run -it --rm -v /tmp/spksrc:/spksrc build_nginx:v1.0
+    docker run -it --rm --name build_nginx1 -v /tmp/spksrc:/spksrc build_nginx:v1.0
 
 ## Docker container: patch_synology
 Main purpose is to patch the host Synology Nas with a new nginx that also have the ability to add custom http_proxy_auth and customize root path of a reverse proxy and also an eco system to add more location under the root path, this is done through the GUI.
@@ -113,6 +113,7 @@ Backup names:
     docker build -t salmirnd/patch_synology:v1.0 .
 
     docker run -it --rm \
+      --name patch_synology1 \
       -v /tmp/spksrc:/spksrc \
       -v /usr/syno/etc.defaults/rc.sysv:/rc.sysv \
       -v /usr/syno/share/nginx:/mustache \
