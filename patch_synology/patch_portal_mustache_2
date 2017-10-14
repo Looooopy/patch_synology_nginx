@@ -1,0 +1,2 @@
+
+    include app.d/locations-{{#fqdn}}{{fqdn}}{{/fqdn}}{{^fqdn}}_{{/fqdn}}.conf;

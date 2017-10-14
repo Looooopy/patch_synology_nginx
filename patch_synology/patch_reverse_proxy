@@ -1,0 +1,16 @@
+	for key in $(cat "$SZF_RP_DATASTORE" | /bin/jq -r '.ReverseProxy | .[].fqdn'); do
+		rootP="root-$key.conf"
+		locationP="locations-$key.conf"
+
+		if [ -f "/etc/nginx/reverseproxy/$rootP" ]; then
+			cp "/etc/nginx/reverseproxy/$rootP" "$SZD_TMP_APP_D/."
+		else
+		    /usr/bin/touch "$SZD_TMP_APP_D/$rootP"
+		fi
+
+		if [ -f "/etc/nginx/reverseproxy/$locationP" ]; then
+		    cp "/etc/nginx/reverseproxy/$locationP" "$SZD_TMP_APP_D/."
+		else
+		    /usr/bin/touch "$SZD_TMP_APP_D/$locationP"
+		fi
+	done
