@@ -1,24 +1,23 @@
 # Build and deploy nginx on Synology NAS
-We made two docker containers that will patch our Synology NAS with a nginx version we desire.
-We have also created a container for handling backups of old versions of the nginx.
-Able to extend root path add locations paths for our reverse proxy and still be able to use the standard GUI.
+- We made two docker containers that will patch our Synology NAS with a nginx version we desire.
+- ~~We have also created a container for handling backups of old versions of the nginx.~~ NOT IMPLEMENTED.
+- Ability to extend root path add locations paths for our reverse proxy and still be able to use the standard GUI.
 
 This solution:
 - Will in extent make it possible to use [OAuth2 Proxy](https://github.com/bitly/oauth2_proxy) with our NAS.
 - Will support [Real-Time Messaging Protocol](https://github.com/arut/nginx-rtmp-module) (RTMP, Media Streaming Server)
-- Patching was tested on a DS1813+ with
+- Patching was tested on a DS1813+ with nginx 1.21.1 previous version 1.11.0 using same ssl that where used in my Synology version 1.0.2l.
 
 ## Run on synology nas
 - sign in through ssh
 - sudo su
 - run ./buildAndPatch.sh
 - wait building
-    fetch the images will take sometime 2 GB to get build chain and 40MB for patch image.
-    nginx can take up to 10-15 minutes
-    Actual patch process goes fast
-
-
-
+    - Fetch the images will take sometime 2 GB to get build chain and 40MB for patch image.
+    - The build process of nginx can take up to 10-15 minutes.
+    - The patch process goes fast.
+- Test change the reverse proxy name or by create a new one in GUI.
+- Test by running "nginx -t" to see if the configuration is correct.
 
 ## Docker container: build_nginx
 Main purpose is to build a new [nginx](https://www.nginx.com/) (default version: 1.12.1) where you define which version you will build and use.
