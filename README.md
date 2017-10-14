@@ -55,7 +55,7 @@ Main purpose is to patch the host Synology Nas with a new nginx that also have t
 ### Configuration files
 To extend nginx config for our reverse proxy settings you have to place config file named: **root-[reverse proxy source host name]** or **locations-[reverse proxy source host name]** inside of folder /etc/nginx/reverseproxy/ on your NAS.
 
-To trigger the apply action of this configuration you need either change a revers proxy setting or create a new one in the GUI.
+To trigger the apply action of this configuration you need either change a reverse proxy setting or create a new one in the GUI.
 
 e.g file "root-example.com")
 
