@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#NGINX_VERSION=$1
-#NGINX_RTMP_MODULE_VERSION=$2
-#OPEN_SSL_VERSION=$3
 echo "nginx ${NGINX_VERSION} - Downloading and extracting"
 wget -q "http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz" && \
   tar -zxf "nginx-${NGINX_VERSION}.tar.gz" && \
