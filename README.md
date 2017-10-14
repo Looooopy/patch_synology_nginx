@@ -6,6 +6,18 @@ Able to extend root path add locations paths for our reverse proxy and still be 
 This solution:
 - Will in extent make it possible to use [OAuth2 Proxy](https://github.com/bitly/oauth2_proxy) with our NAS.
 - Will support [Real-Time Messaging Protocol](https://github.com/arut/nginx-rtmp-module) (RTMP, Media Streaming Server)
+- Patching was tested on a DS1813+ with
+
+## Run on synology nas
+- sign in through ssh
+- sudo su
+- run ./buildAndPatch.sh
+- wait building
+    fetch the images will take sometime 2 GB to get build chain and 40MB for patch image.
+    nginx can take up to 10-15 minutes
+    Actual patch process goes fast
+
+
 
 
 ## Docker container: build_nginx
@@ -151,6 +163,8 @@ Backup names:
 
 
 ## Docker container: manage_backups
+!!!NOT IMPLEMENTED!!!
+
 With this container you could either:
 - revert backup
 - purge backup
