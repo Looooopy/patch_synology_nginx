@@ -3,7 +3,7 @@
 if [ ! -f /host/bin/nginx.bak ]; then
   if [ -f /spksrc/nginx ]; then
     echo "Creating backup"
-    cp /host/bin/nginx /host/bin/nginx.bak
+    mv /host/bin/nginx /host/bin/nginx.bak
     cp /mustache/nginx.mustache /mustache/nginx._ustache.bak
     cp /mustache/Portal.mustache /mustache/Portal._ustache.bak
     cp /rc.sysv/nginx-conf-generator.sh /rc.sysv/nginx-conf-generator.bak
