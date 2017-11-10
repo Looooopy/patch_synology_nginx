@@ -9,7 +9,7 @@ if [ ! -f /host/bin/nginx.bak ]; then
     cp /rc.sysv/nginx-conf-generator.sh /rc.sysv/nginx-conf-generator.bak
 
     echo "Patch nginx.mustache"
-    # Serach for server_tag take the result line 's' and strip 4 chars at beginning insert '    #' at beginning and do not create a backup
+    # Search for server_tag take the result line 's' and strip 4 chars at beginning insert '    #' at beginning and do not create a backup
     sed -i -re '/server_tag/s/^.{4}/    #/' /mustache/nginx.mustache
 
     echo "Patch nginx-conf-generator.sh"
