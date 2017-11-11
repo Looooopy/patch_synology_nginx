@@ -12,7 +12,7 @@ This solution:
 - sign in through ssh
 - sudo su
 - run ./buildAndPatch.sh
-- wait building
+- wait for build and patch to complete
     - Fetch the images will take sometime 2 GB to get build chain and 40MB for patch image.
     - The build process of nginx can take up to 10-15 minutes.
     - The patch process goes fast.
