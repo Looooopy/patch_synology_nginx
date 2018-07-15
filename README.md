@@ -6,11 +6,12 @@
 This solution:
 - Will in extent make it possible to use [OAuth2 Proxy](https://github.com/bitly/oauth2_proxy) with our NAS.
 - Will support [Real-Time Messaging Protocol](https://github.com/arut/nginx-rtmp-module) (RTMP, Media Streaming Server)
-- Patching was tested on a DS1813+ with nginx 1.21.1 previous version 1.11.0 using same ssl that where used in my Synology version 1.0.2l.
+- Patching was tested on a DS1813+ with nginx 1.21.1 and 1.33 using same ssl that where used in my Synology version 1.0.2n.
 
 ## Run on synology nas
 - sign in through ssh
 - sudo su
+- [optionally] create root-[reverse-proxy-address].conf and locations-[reverse-proxy-address].conf files in folder /etc/nginx/reverseproxy/
 - run ./buildAndPatch.sh
 - wait for build and patch to complete
     - Fetch the images will take sometime 2 GB to get build chain and 40MB for patch image.
@@ -32,9 +33,9 @@ Main purpose is to build a new [nginx](https://www.nginx.com/) (default version:
 - nginx-rtmp-module (can define which version, default 1.2.0)
 
 ### Enviroment variables:
-    NGINX_VERSION             1.12.1
-    OPEN_SSL_VERSION          1_0_2l
-    NGINX_RTMP_MODULE_VERSION 1.2.0
+    NGINX_VERSION             1.13.3
+    OPEN_SSL_VERSION          1_0_2n
+    NGINX_RTMP_MODULE_VERSION 1.2.1
 
 
 I specified the same [OpenSSL](https://github.com/openssl/openssl) version as the one matching my setup on my NAS before patching.
