@@ -9,6 +9,9 @@ mkdir /tmp/spksrc
 # link our libpcreso ssl works.
 [[ ! -e /usr/lib/libpcre.so.3 ]] && ln -s /usr/lib/libpcre.so /usr/lib/libpcre.so.3
 
+# create scgi_temp
+[[ ! -d directory ]] && mkdir /etc/nginx/scgi_temp
+
 # take owenrship of dir as http.
 [[ -d /etc/nginx/scgi_temp/ ]] && chown http:http /etc/nginx/scgi_temp
 
