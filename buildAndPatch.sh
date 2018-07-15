@@ -16,7 +16,8 @@ mkdir /tmp/spksrc
 docker run -it --rm \
   --name build_nginx1 \
   -v /tmp/spksrc:/spksrc \
-  build_nginx:v1.0
+  -e
+  salmirnd/build_nginx:v1.0
 
 # Patch our nginx
 docker run -it --rm \
@@ -26,4 +27,4 @@ docker run -it --rm \
   -v /usr/syno/share/nginx:/mustache \
   -v /usr/bin:/host/bin \
   -v /etc/nginx:/etc_nginx \
-  patch_synology:v1.0
+  salmirnd/patch_synology:v1.0
