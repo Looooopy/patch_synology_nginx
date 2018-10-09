@@ -72,6 +72,12 @@ e.g file "root-example.com")
 
     auth_request_set $auth_cookie $upstream_http_set_cookie;
     add_header Set-Cookie $auth_cookie;
+    
+    # 20 minutes of timeout (Useful on SSE events so it do not timeout after 60 seconds)
+    proxy_connect_timeout 1200;
+    proxy_send_timeout 1200;
+    proxy_read_timeout 1200;
+
 
 e.g file "locations-example.com")
 
