@@ -19,8 +19,8 @@ mkdir /tmp/spksrc
 docker run -it --rm \
   --name build_nginx1 \
   -v /tmp/spksrc:/spksrc \
-  -e NGINX_VERSION='1.13.3' \
-  -e OPEN_SSL_VERSION='1_0_2n' \
+  -e NGINX_VERSION='1.15.7' \
+  -e OPEN_SSL_VERSION='1_0_2r' \
   -e NGINX_RTMP_MODULE_VERSION='1.2.1' \
   salmirnd/build_nginx:v1.0
 
