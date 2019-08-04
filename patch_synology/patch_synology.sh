@@ -17,7 +17,7 @@ if [ ! -f /host/bin/nginx.bak ]; then
     sed -i '/server.ReverseProxy.conf" || true/r ./patch_reverse_proxy' /rc.sysv/nginx-conf-generator.sh
 
     echo "Patch Portal.mustache"
-    sed -i '/proxy_http_version      1.1;/r ./patch_portal_mustache_1' /mustache/Portal.mustache
+    sed -i '/{{/advanced}}/r ./patch_portal_mustache_1' /mustache/Portal.mustache
     sed -i '/{{\/letsencrypt}}/r ./patch_portal_mustache_2' ./mustache/Portal.mustache
 
     echo "Patch nginx"
