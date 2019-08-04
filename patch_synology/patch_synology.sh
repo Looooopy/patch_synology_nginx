@@ -22,9 +22,6 @@ if [ ! -f /host/bin/nginx.bak ]; then
 
     echo "Patch nginx"
     cp /spksrc/nginx /host/bin/nginx
-    
-    echo "restart nginx"
-    synoservicecfg --restart nginx
   else
     echo "Missing a nginx to deploy, run nginx_build first, do not apply patch!"
   fi
