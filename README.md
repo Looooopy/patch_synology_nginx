@@ -6,7 +6,7 @@
 This solution:
 - Will in extent make it possible to use [OAuth2 Proxy](https://github.com/bitly/oauth2_proxy) with our NAS.
 - Will support [Real-Time Messaging Protocol](https://github.com/arut/nginx-rtmp-module) (RTMP, Media Streaming Server)
-- Patching was tested on a DS1813+ with nginx 1.21.1 and 1.33 using same ssl that where used in my Synology version 1.0.2n.
+- Patching was tested on a DS1813+ with nginx 1.21.1 and 1.33, 1.15.7 using same ssl that where used in my Synology version 1.0.2l, 1.0.2n, 1.0.2r.
 
 ## Run on synology nas
 - sign in through ssh
@@ -21,20 +21,20 @@ This solution:
 - Test by running "nginx -t" to see if the configuration is correct.
 
 ## Docker container: build_nginx
-Main purpose is to build a new [nginx](https://www.nginx.com/) (default version: 1.12.1) where you define which version you will build and use.
+Main purpose is to build a new [nginx](https://www.nginx.com/) (default version: 1.15.7) where you define which version you will build and use.
 
 **We include following modules:**
 - http_gzip_static_module
 - http_realip_module
 - http_v2_module
 - http_sub_module
-- http_ssl_module (can define which version, default 1.0.2l)
+- http_ssl_module (can define which version, default 1.0.2r)
 - http_auth_request_module
 - nginx-rtmp-module (can define which version, default 1.2.0)
 
 ### Enviroment variables:
-    NGINX_VERSION             1.13.3
-    OPEN_SSL_VERSION          1_0_2n
+    NGINX_VERSION             1.15.7
+    OPEN_SSL_VERSION          1_0_2r
     NGINX_RTMP_MODULE_VERSION 1.2.1
 
 
@@ -61,7 +61,7 @@ To trigger the apply action of this configuration you need either change a rever
 e.g file "root-example.com")
 
     auth_request /oauth2/auth;
-    error_page 401 = /oauth2/sign_in;
+    error_page 401 = /oauth2/start;
 
     # pass information via X-User and X-Email headers to backend,
     # requires running with --set-xauthrequest flag
