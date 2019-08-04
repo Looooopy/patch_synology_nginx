@@ -33,3 +33,6 @@ docker run -it --rm \
   -v /usr/bin:/host/bin \
   -v /etc/nginx:/etc_nginx \
   salmirnd/patch_synology:v1.0
+  
+echo "restart nginx"
+synoservicecfg --restart nginx
