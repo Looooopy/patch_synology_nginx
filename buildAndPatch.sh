@@ -19,20 +19,20 @@ mkdir /tmp/spksrc
 docker run -it --rm \
   --name build_nginx1 \
   -v /tmp/spksrc:/spksrc \
-  -e NGINX_VERSION='1.15.7' \
-  -e OPEN_SSL_VERSION='1_0_2r' \
+  -e NGINX_VERSION='1.18.0' \
+  -e OPEN_SSL_VERSION='1_1_1h' \
   -e NGINX_RTMP_MODULE_VERSION='1.2.1' \
   salmirnd/build_nginx:v1.0
 
 # Patch our nginx
-docker run -it --rm \
-  --name patch_synology1 \
-  -v /tmp/spksrc:/spksrc \
-  -v /usr/syno/etc.defaults/rc.sysv:/rc.sysv \
-  -v /usr/syno/share/nginx:/mustache \
-  -v /usr/bin:/host/bin \
-  -v /etc/nginx:/etc_nginx \
-  salmirnd/patch_synology:v1.0
+ docker run -it --rm \
+   --name patch_synology1 \
+   -v /tmp/spksrc:/spksrc \
+   -v /usr/syno/etc.defaults/rc.sysv:/rc.sysv \
+   -v /usr/syno/share/nginx:/mustache \
+   -v /usr/bin:/host/bin \
+   -v /etc/nginx:/etc_nginx \
+   salmirnd/patch_synology:v1.0
   
-echo "restart nginx"
-synoservicecfg --restart nginx
+ echo "restart nginx"
+ synoservicecfg --restart nginx
